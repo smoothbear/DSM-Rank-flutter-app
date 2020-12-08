@@ -14,21 +14,34 @@ class _LoginState extends State<LoginDialog> {
   Widget build(BuildContext context) {
     return AlertDialog(
         content: Container(
-        child: _buildBody(),
-          width: 280,
-          height: 300,
+        child: Column(
+        children: [
+          SizedBox(height: 40,),
+          Text("로그인", style: TextStyle(fontSize: 22.0, color: Colors.black),),
+          SizedBox(height: 40,),
+          _buildBody(),
+          ],
+        ),
+          width: 260,
+          height: 280,
         ),
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(32.0))
       ),
       actions: [
-        ButtonTheme(
-          minWidth: 300,
-          child: _buildLoginButton(),
-          height: 50,
-          shape: RoundedRectangleBorder(
-          ),
-        )
+        InkWell(
+          borderRadius: BorderRadius.circular(25.0),
+          onTap: () {},
+          child: Container(
+            child: Center(
+                child: InkWell(
+                child: Text("로그인", style: TextStyle(fontSize: 18), textAlign: TextAlign.center),
+              ),
+            ),
+            width: 400,
+            height: 40,
+          )
+        ),
       ],
     );
   }
@@ -36,9 +49,8 @@ class _LoginState extends State<LoginDialog> {
   Widget _buildBody() {
     return Material(
       child: Column(
-        children: <Widget>[
-            Text("로그인", style: TextStyle(fontSize: 22.0, color: Colors.black),),
-            _buildTextForm()
+        children: [
+          _buildTextForm()
         ],
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,
@@ -82,17 +94,8 @@ class _LoginState extends State<LoginDialog> {
     );
   }
 
-  Widget _buildLoginButton() {
-    return FlatButton(
-          onPressed: Login,
-          child: Text("로그인", style: TextStyle(color: Colors.blue),),
-          color: Colors.white10,
-          splashColor: Colors.black12,
-    );
-  }
-
   // ignore: non_constant_identifier_names
-  void Login() {
+  void _login() {
 
   }
 }
