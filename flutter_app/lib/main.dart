@@ -14,7 +14,10 @@ class _MainState extends State<MainScreen>{
   @override
   Widget build(BuildContext context) {
       return Scaffold(
-        appBar: MainAppbar(),
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(40.0),
+          child: MainAppbar(),
+        )
       );
   }
 }

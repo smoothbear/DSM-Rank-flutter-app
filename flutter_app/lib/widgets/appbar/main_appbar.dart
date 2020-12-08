@@ -20,10 +20,10 @@ class MainAppbar extends StatelessWidget with PreferredSizeWidget {
             showGeneralDialog(
               barrierDismissible: true,
               barrierLabel: "",
-              transitionDuration: Duration(milliseconds: 400),
+              transitionDuration: Duration(milliseconds: 320),
               transitionBuilder: (_, anim, __, child) {
                 return SlideTransition(
-                  position: Tween(begin: Offset(0, 1), end: Offset(0, 0)).animate(anim),
+                  position: Tween(begin: Offset(0, -1), end: Offset(0, 0)).animate(anim),
                   child: child,
                 );
               },
