@@ -6,35 +6,33 @@ class MainAppbar extends StatelessWidget with PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return AppBar(
-      title: Text("DSM Rank"),
-      actions: [
-        FlatButton(
-          child: Text(
-            "로그인",
-            style: TextStyle(
-                color: Colors.white
-            ),
-          ),
-          onPressed: () {
-            showGeneralDialog(
-              barrierDismissible: true,
-              barrierLabel: "",
-              transitionDuration: Duration(milliseconds: 320),
-              transitionBuilder: (_, anim, __, child) {
-                return SlideTransition(
-                  position: Tween(begin: Offset(0, -1), end: Offset(0, 0)).animate(anim),
-                  child: child,
-                );
-              },
-              context: context,
-              pageBuilder: (_, __, ___) {
-                return LoginDialog();
-              }
-            );
-          }
-        )
-      ]
+    return BottomAppBar(
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          IconButton(
+            icon: Icon(Icons.login),
+            tooltip: "로그인",
+            onPressed: () {
+              showGeneralDialog(
+                barrierDismissible: true,
+                barrierLabel: "",
+                transitionDuration: Duration(milliseconds: 320),
+                transitionBuilder: (_, anim, __, child) {
+                  return SlideTransition(
+                    position: Tween(begin: Offset(0, -1), end: Offset(0, 0)).animate(anim),
+                    child: child,
+                  );
+                },
+                context: context,
+                pageBuilder: (_, __, ___) {
+                  return LoginDialog();
+                }
+              );
+            }
+          )
+        ]
+      ),
     );
   }
 
