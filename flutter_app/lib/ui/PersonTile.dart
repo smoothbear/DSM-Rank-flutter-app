@@ -10,14 +10,21 @@ class PersonTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
+    int rank = 1;
     // TODO: implement build
     return ListTile(
-      leading: CircleAvatar(
-        backgroundImage: NetworkImage(_person.githubImage)
-      ),
-      title: Text(_person.name),
-    );
+      leading: CircleAvatar(backgroundImage: NetworkImage(_person.githubImage)),
+      title: Row(
+          children: [
+            Text(
+              "#" + rank.toString() + " ",
+              style: TextStyle(fontSize: 20),
+            ),
+          Text(
+            _person.name,
+            style: TextStyle(fontSize: 20),
+          ),
+        ]));
   }
   
 }
