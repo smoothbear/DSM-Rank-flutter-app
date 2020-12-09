@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -116,7 +115,6 @@ class _LoginState extends State<LoginDialog> {
       Response response = await post(url + '/auth', headers: {"Content-Type": "application/json"}, body: json.encode(request));
 
       if (response.statusCode > 299) {
-        print("${response.statusCode}");
         showDialog(context: context,  barrierDismissible: false, builder: (BuildContext context) {
           Future.delayed(Duration(milliseconds: 500), () {
             Navigator.pop(context);
@@ -140,8 +138,8 @@ class _LoginState extends State<LoginDialog> {
       Map<String, dynamic> responseBody = json.decode(response.body);
 
       final storage = FlutterSecureStorage();
-      await storage.write(
-          key: 'access-token', value: responseBody['access-token']);
+      await storage.write(key: 'access-token', value: responseBody['accessToken']);
+      Navigator.pop(context);
     } else {
       showDialog(context: context,  barrierDismissible: false, builder: (BuildContext context) {
         Future.delayed(Duration(milliseconds: 500), () {
