@@ -133,6 +133,7 @@ class _LoginState extends State<LoginDialog> {
                 borderRadius: BorderRadius.all(Radius.circular(14.0))),
           );
         });
+        return;
       }
 
       Map<String, dynamic> responseBody = json.decode(response.body);

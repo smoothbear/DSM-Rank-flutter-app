@@ -8,7 +8,6 @@ class MainAppbar extends StatelessWidget with PreferredSizeWidget {
 
   void logout(BuildContext context) async {
     await storage.delete(key: "access-token");
-    await storage.delete(key: "refresh-token");
 
     showDialog(barrierDismissible: false, builder: (BuildContext context) {
       Future.delayed(Duration(milliseconds: 500), () {
@@ -39,7 +38,6 @@ class MainAppbar extends StatelessWidget with PreferredSizeWidget {
         children: [
           IconButton(
             icon: Icon(Icons.login),
-            tooltip: "로그인",
             onPressed: () async {
               if (await storage.read(key: 'access-token') == null) {
                 showGeneralDialog(
