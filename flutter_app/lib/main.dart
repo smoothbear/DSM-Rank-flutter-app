@@ -26,23 +26,11 @@ class _MainState extends State<MainScreen>{
             preferredSize: Size.fromHeight(40.0),
             child: MainAppbar(),
         ),
-          body: Column(
-              children: [
-                Text(
-                  "S"
-                ),
-            Expanded(
-                child: Container(
-              child: _buildList(),
-              height: 500,
-            ))
-          ],
-        )
+          body: _buildList()
       );
   }
 
   Widget _buildList() {
-    _getPerson();
     return ListView.separated(
       itemCount: people.length,
       itemBuilder: (BuildContext _context, int index) {
