@@ -16,6 +16,7 @@ class _LoginState extends State<LoginDialog> {
 
   String url = 'http://52.79.253.30:5050';
 
+  // Login Body
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -106,6 +107,7 @@ class _LoginState extends State<LoginDialog> {
   }
 
   // ignore: non_constant_identifier_names
+  // login request logic
   void _login() async {
     if (_userEmailController.text != '' && _passwordController.text != '') {
       Map<String, dynamic> request = {
