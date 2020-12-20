@@ -1,1 +1,1 @@
-# dsm-rank-flutter
+# DSM RANK App(Flutter app)
